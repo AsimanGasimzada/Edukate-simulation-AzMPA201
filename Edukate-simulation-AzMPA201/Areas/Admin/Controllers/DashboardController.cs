@@ -1,0 +1,11 @@
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace Edukate_simulation_AzMPA201.Areas.Admin.Controllers;
+[Area("Admin")]
+public class DashboardController : Controller
+{
+    public IActionResult Index()
+    {
+        return View();
+    }
+}
