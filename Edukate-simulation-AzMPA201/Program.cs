@@ -1,4 +1,6 @@
 using Edukate_simulation_AzMPA201.Data;
+using Edukate_simulation_AzMPA201.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace Edukate_simulation_AzMPA201
@@ -25,6 +27,16 @@ namespace Edukate_simulation_AzMPA201
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
 
+
+            builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
+            {
+                //    options.Password.RequiredLength = 4;
+                //    options.Password.RequireUppercase = false;
+
+
+
+            }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+
             var app = builder.Build();
 
             app.UseHttpsRedirection();
@@ -32,6 +44,7 @@ namespace Edukate_simulation_AzMPA201
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(
