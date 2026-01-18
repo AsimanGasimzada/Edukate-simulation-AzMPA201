@@ -1,0 +1,11 @@
+﻿@model CourseGetVM
+
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="~/img/@Model.ImagePath" alt="Card image cap">
+    <div class="card-body">
+        <p class="card-text"><b>Title:</b> @Model.Title</p>
+        <p class="card-text"><b>Rating:</b> @Model.Rating</p>
+        <p class="card-text"><b>Author:</b> @Model.AuthorFullname</p>
+        <a class="btn btn-secondary" asp-action="Index">Back</a>
+    </div>
+</div>

@@ -1,3 +1,6 @@
+using Edukate_simulation_AzMPA201.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace Edukate_simulation_AzMPA201
 {
     public class Program
@@ -7,6 +10,20 @@ namespace Edukate_simulation_AzMPA201
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddControllersWithViews();
+
+
+            //        var connectionString =
+            //builder.Configuration.GetConnectionString("DefaultConnection")
+            //    ?? throw new InvalidOperationException("Connection string"
+            //    + "'DefaultConnection' not found.");
+
+            //        builder.Services.AddDbContext<AppDbContext>(options =>
+            //            options.UseSqlServer(connectionString));
+
+            builder.Services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
 
             var app = builder.Build();
 

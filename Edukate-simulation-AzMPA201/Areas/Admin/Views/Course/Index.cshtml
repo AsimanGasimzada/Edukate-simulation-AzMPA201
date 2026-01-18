@@ -1,0 +1,37 @@
+﻿@using Edukate_simulation_AzMPA201.ViewModels.CourseViewModels
+@model List<CourseGetVM>
+
+
+<table class="table table-striped">
+
+    <a class="btn btn-success" asp-action="Create">create</a>
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Image</th>
+            <th scope="col">Title</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Author</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model)
+        {
+            <tr>
+                <th scope="row">@course.Id</th>
+                <td><img src="~/img/@course.ImagePath" /></td>
+                <td>@course.Title</td>
+                <td>@course.Rating</td>
+                <td>@course.AuthorFullname</td>
+                <td>
+                    <a asp-action="Detail" asp-route-id="@course.Id" class="btn btn-primary">Detail</a>
+                    <a asp-action="Update" asp-route-id="@course.Id" class="btn btn-warning">Update</a>
+                    <a asp-action="Delete" asp-route-id="@course.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+
+        }
+
+    </tbody>
+</table>
