@@ -21,6 +21,10 @@ namespace Edukate_simulation_AzMPA201
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
+
+
+
+
             app.Run();
         }
     }
